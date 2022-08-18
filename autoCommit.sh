@@ -13,7 +13,7 @@ fi
 cd ${1}
 
 OUTPUT=$(/usr/bin/git status)
-ROWCOUNT=$(echo ${OUTPUT} | .bub.greo -i "nothing to commit, working tree clean" | wc -l)
+ROWCOUNT=$(echo ${OUTPUT} | /bin/grep -i "nothing to commit, working tree clean" | wc -l)
 
 if [ ${ROWCOUNT} -eq 0 ]
 then

@@ -11,6 +11,7 @@
 import time
 import board
 import digitalio
+import subprocess
 from adafruit_seesaw.seesaw import Seesaw
 from adafruit_seesaw.digitalio import DigitalIO
 #from adafruit_seesaw.pwmout import PWMOut
@@ -38,8 +39,50 @@ try:
     while True:
         for ledNumber, button in enumerate(btns):
             if not button.value:
-                print("Button pushed:", BUTTON_PINS[ledNumber], BUTTON_COLORS[ledNumber])
-                print("Light color:", LED_PINS[ledNumber], BUTTON_COLORS[ledNumber])
+                print("Button Pressed:", BUTTON_COLORS[ledNumber])
+
+                # RED
+                # Turn off playlist and lights
+                if BUTTON_COLORS[ledNumber] == "RED":
+                    
+                    # Stop running playlist
+                    out = subprocess.run(["fpp", "-c", "stop"], capture_output=True, text=True)
+                    print(out.stdout)
+
+                    # Turn off all the channels in the model
+                    out = subprocess.run(["fppmm", "-m", "All", "-s", "0"], capture_output=True, text=True)
+                    print(out.stdout)
+
+                    # Turn off the model in overlay mode (just in case)
+                    out = subprocess.run(["fppmm", "-m", "All", "-o", "off"], capture_output=True, text=True)
+                    print(out.stdout)
+
+
+                # GREEN
+                # Start Playlist
+                elif BUTTON_COLORS[ledNumber] == "GREEN":
+                    out = subprocess.run(["fpp", "-p", "Xmas2022"], capture_output=True, text=True)
+                    print(out.stdout)
+
+
+                # WHITE
+                # All lights ON
+                elif BUTTON_COLORS[ledNumber] == "WHITE":
+                    out = subprocess.run(["fppmm", "-m", "All", "-o", "on"], capture_output=True, text=True)
+                    print(out.stdout)
+                    out = subprocess.run(["fppmm", "-m", "All", "-s", "255"], capture_output=True, text=True)
+                    print(out.stdout)
+
+
+                # BLUE
+                # All lights OFF
+                elif BUTTON_COLORS[ledNumber] == "BLUE":
+                    out = subprocess.run(["fppmm", "-m", "All", "-s", "0"], capture_output=True, text=True)
+                    print(out.stdout)
+                    out = subprocess.run(["fppmm", "-m", "All", "-o", "off"], capture_output=True, text=True)
+                    print(out.stdout)
+
+
 #            qt.digital_write(LED_PINS[ledNumber], True)
 
 except KeyboardInterrupt:

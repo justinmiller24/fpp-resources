@@ -1,20 +1,10 @@
 php_value max_input_vars 5000
 php_value upload_max_filesize 4G
 php_value post_max_size 4G
-AuthUserFile /home/fpp/media/config/.htpasswd
-AuthType Basic
-AuthName "Falcon Player"
-Require valid-user
-SetEnvIf Host ^ LOCAL_PROTECT=1
+SetEnvIf Host ^ LOCAL_PROTECT=0
 <FilesMatch "^(fppjson|fppxml)\.php$">
-<RequireAny>
-  <RequireAll>
-    Require local
-  </RequireAll>
-  <RequireAll>
-    Require valid-user
-  </RequireAll>
-</RequireAny>
+Allow from All
+Satisfy Any
 </FilesMatch>
 <FilesMatch "^(favicon)\.ico$">
 Allow from All

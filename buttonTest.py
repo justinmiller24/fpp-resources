@@ -6,48 +6,51 @@
 # sudo apt-get update
 # sudo apt-get upgrade
 # sudo apt-get install python3-pip
-# sudo pip3 install --upgrade setuptools adafruit-python-shell adafruit-blinka circuitpython-i2c-button
+# sudo pip3 install --upgrade adafruit-blinka adafruit-circuitpython-seesaw
 
 # Import Libraries (python)
 import time
 import board
-import busio
-from i2c_button import I2C_Button
-
-# Addresses
-ADDRS = (0x3A)
+import digitalio
+from adafruit_seesaw.seesaw import Seesaw
+from adafruit_seesaw.digitalio import DigitalIO
+from adafruit_seesaw.pwmout import PWMOut
 
 # Initialize I2C
+import busio
 i2c = busio.I2C(board.SCL, board.SDA)
+qt = Seesaw(i2c, addr=0x3A)
 
-#Initialize buttons
+# Buttonsi
+BUTTON_PINS = (18, 19, 20, 2)
 btns = []
-for addr in enumerate(ADDRS):
-    btn = I2C_Button(i2c, addr, name="btn")
+for btnPin in BUTTON_PINS:
+    btn = DigitalIO(qt, btnPin)
+    btn.direction = digitalio.Direction.INPUT
+    btn.pull = digitalio.Pull.UP
     btns.append(btn)
-    btn.debounce_ms = 25
-    btn.led_bright = btn.led_gran = 0
-    btn.led_cycle_ms = btn.led_off_ms = 0
 
-# Clear status of all buttons
-def clearAll():
-    for cbtn in btns:
-        cbtn.clear()
+# LEDs
+LED_PINS = (12, 13, 0, 1)
+leds = []
+for ledPin in LED_PINS:
+    led = PWMOut(qt, ledPin)
+    leds.append(led)
 
-
-clearAll()
+# Loop
 while True:
-    clicked = [btn for btn in btns if btn.status.been_clicked]
-    nclicked = len(clicked)
-    if nclicked == 0:
-        continue
-    for btn in btns:
-        btn.led_bright = 0
-    if nclicked == 1:
-        wbtn = clicked[0]
-        wbtn.led_bright = 255
-        print(wbtn.name)
-    clearAll()
+    for ledNumber, button in enumerate(btns):
+        if not button.value:
+            qt.digital_write(LED_PINS[ledNumber], True)
+        else:
+            qt.digital_write(LED_PINS[ledNumber], False)
+
+#            for cycle in range(0, 65535, 8000):
+#                leds[ledNumber].duty_cycle = cycle
+#                time.sleep(0.01)
+#            for cycle in range(65534, 0, -8000):
+#                leds[ledNumber].duty_cycle = cycle
+#                time.sleep(0.01)
 
 
 

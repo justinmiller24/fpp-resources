@@ -5,7 +5,7 @@
 
 
 # Check if running
-if pgrep runButtonController.py >/dev/null 2>&1
+if pgrep /home/fpp/media/runButtonController.py >/dev/null 2>&1
 then
     # Script is running, nothing to do
     exit

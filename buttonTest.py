@@ -14,7 +14,7 @@ import digitalio
 import subprocess
 from adafruit_seesaw.seesaw import Seesaw
 from adafruit_seesaw.digitalio import DigitalIO
-#from adafruit_seesaw.pwmout import PWMOut
+from adafruit_seesaw.pwmout import PWMOut
 
 # Initialize I2C
 import busio
@@ -33,13 +33,19 @@ for btnPin in BUTTON_PINS:
 
 # LEDs
 LED_PINS = (12, 13, 0, 1)
+leds = []
+for ledPin in LED_PINS:
+    led = PWMOut(qt, ledPin)
+    leds.append(led)
 
 
+# Main Loop
 try:
     while True:
         for ledNumber, button in enumerate(btns):
             if not button.value:
                 print("Button Pressed:", BUTTON_COLORS[ledNumber])
+                leds[ledNumber].duty_cycle = 65535
 
                 # RED
                 # Turn off playlist and lights
@@ -81,6 +87,11 @@ try:
                     print(out.stdout)
                     out = subprocess.run(["fppmm", "-m", "All", "-o", "off"], capture_output=True, text=True)
                     print(out.stdout)
+
+
+            # Turn off LEDs when button is not pressed
+            else:
+                leds[ledNumber].duty_cycle = 0
 
 
 #            qt.digital_write(LED_PINS[ledNumber], True)

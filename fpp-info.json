@@ -1,18 +1,18 @@
 {
 	"HostDescription" : "FPP",
-	"addresses" : "10.0.0.196",
+	"addresses" : "10.0.0.43",
 	"channelRanges" : "0-7",
 	"fppMode" : 2,
 	"fppModeString" : "player",
 	"hostname" : "FPP",
 	"local" : 1,
 	"majorVersion" : 6,
-	"minorVersion" : 0,
+	"minorVersion" : 1,
 	"model" : "Raspberry Pi 4 Model B Rev 1.1",
 	"multiSyncCapable" : 0,
 	"multisync" : false,
 	"type" : "Raspberry Pi 4",
 	"typeId" : 13,
 	"uuid" : "M1-10000000840db27a",
-	"version" : "6.0.2"
+	"version" : "6.1.1"
 }

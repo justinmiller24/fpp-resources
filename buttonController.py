@@ -52,40 +52,40 @@ try:
                 if BUTTON_COLORS[ledNumber] == "RED":
                     
                     # Stop running playlist
-                    out = subprocess.run(["fpp", "-c", "stop"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fpp", "-c", "stop"], capture_output=True, text=True)
                     print(out.stdout)
 
                     # Turn off all the channels in the model
-                    out = subprocess.run(["fppmm", "-m", "All", "-s", "0"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fppmm", "-m", "All", "-s", "0"], capture_output=True, text=True)
                     print(out.stdout)
 
                     # Turn off the model in overlay mode (just in case)
-                    out = subprocess.run(["fppmm", "-m", "All", "-o", "off"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fppmm", "-m", "All", "-o", "off"], capture_output=True, text=True)
                     print(out.stdout)
 
 
                 # GREEN
                 # Start Playlist
                 elif BUTTON_COLORS[ledNumber] == "GREEN":
-                    out = subprocess.run(["fpp", "-p", "Xmas2022"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fpp", "-p", "Xmas2022"], capture_output=True, text=True)
                     print(out.stdout)
 
 
                 # WHITE
                 # All lights ON
                 elif BUTTON_COLORS[ledNumber] == "WHITE":
-                    out = subprocess.run(["fppmm", "-m", "All", "-o", "on"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fppmm", "-m", "All", "-o", "on"], capture_output=True, text=True)
                     print(out.stdout)
-                    out = subprocess.run(["fppmm", "-m", "All", "-s", "255"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fppmm", "-m", "All", "-s", "255"], capture_output=True, text=True)
                     print(out.stdout)
 
 
                 # BLUE
                 # All lights OFF
                 elif BUTTON_COLORS[ledNumber] == "BLUE":
-                    out = subprocess.run(["fppmm", "-m", "All", "-s", "0"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fppmm", "-m", "All", "-s", "0"], capture_output=True, text=True)
                     print(out.stdout)
-                    out = subprocess.run(["fppmm", "-m", "All", "-o", "off"], capture_output=True, text=True)
+                    out = subprocess.run(["/opt/fpp/src/fppmm", "-m", "All", "-o", "off"], capture_output=True, text=True)
                     print(out.stdout)
 
 

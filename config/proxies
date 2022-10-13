@@ -4,6 +4,9 @@ RewriteBase /proxy/
 RewriteRule ^10.0.2.100$  10.0.2.100/  [R,L]
 RewriteRule ^10.0.2.100/(.*)$  http://10.0.2.100/$1  [P,L]
 
+RewriteRule ^10.0.2.101$  10.0.2.101/  [R,L]
+RewriteRule ^10.0.2.101/(.*)$  http://10.0.2.101/$1  [P,L]
+
 RewriteRule ^(.*)/(.*)$  http://$1/$2  [P,L]
 RewriteRule ^(.*)$  $1/  [R,L]
 

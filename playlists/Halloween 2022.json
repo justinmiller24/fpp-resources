@@ -1,0 +1,24 @@
+{
+    "name": "Halloween 2022",
+    "version": 3,
+    "repeat": 0,
+    "loopCount": 0,
+    "empty": false,
+    "desc": "Halloween 2022",
+    "random": 0,
+    "leadIn": [],
+    "mainPlaylist": [
+        {
+            "type": "sequence",
+            "enabled": 1,
+            "playOnce": 0,
+            "sequenceName": "Halloween - Candle.fseq",
+            "duration": 30
+        }
+    ],
+    "leadOut": [],
+    "playlistInfo": {
+        "total_duration": 30,
+        "total_items": 1
+    }
+}

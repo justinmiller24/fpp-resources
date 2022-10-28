@@ -1,0 +1,44 @@
+[
+    {
+        "enabled": 1,
+        "sequence": 0,
+        "playlist": "Halloween 2022",
+        "day": 7,
+        "startTime": "Dusk",
+        "startTimeOffset": 0,
+        "endTime": "23:00:00",
+        "endTimeOffset": 0,
+        "repeat": 1,
+        "startDate": "2022-10-01",
+        "endDate": "2022-10-31",
+        "stopType": 0
+    },
+    {
+        "enabled": 1,
+        "sequence": 0,
+        "playlist": "Xmas2022",
+        "day": 7,
+        "startTime": "Dusk",
+        "startTimeOffset": 0,
+        "endTime": "23:00:00",
+        "endTimeOffset": 0,
+        "repeat": 1,
+        "startDate": "2022-11-01",
+        "endDate": "2022-12-31",
+        "stopType": 0
+    },
+    {
+        "enabled": 1,
+        "sequence": 0,
+        "playlist": "Default",
+        "day": 7,
+        "startTime": "23:00:00",
+        "startTimeOffset": 0,
+        "endTime": "Dawn",
+        "endTimeOffset": 0,
+        "repeat": 1,
+        "startDate": "2022-01-01",
+        "endDate": "2027-12-31",
+        "stopType": 0
+    }
+]

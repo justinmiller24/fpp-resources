@@ -878,9 +878,9 @@
       },
       {
          "ChannelCount" : 180,
+         "ChannelCountPerNode" : 3,
          "Type" : "Channel",
          "Name" : "01A_Piano_Righta",
-         "ChannelCountPerNode" : 3,
          "Orientation" : "horizontal",
          "StartCorner" : "BL",
          "StrandsPerString" : 1,

@@ -6,49 +6,19 @@
     "empty": false,
     "desc": "",
     "random": 0,
-    "leadIn": [
-        {
-            "type": "both",
-            "enabled": 1,
-            "playOnce": 0,
-            "sequenceName": "00-Intro-THX.fseq",
-            "mediaName": "00-THX-Intro.m4a",
-            "videoOut": "--Default--",
-            "duration": 46
-        }
-    ],
+    "leadIn": [],
     "mainPlaylist": [
         {
-            "type": "both",
+            "type": "sequence",
             "enabled": 1,
             "playOnce": 0,
-            "sequenceName": "01-Sarajevo.fseq",
-            "mediaName": "01-TSO-ChristmasEveSarajevo12_24.mp3",
-            "videoOut": "--Default--",
-            "duration": 205.34858607521952
-        },
-        {
-            "type": "both",
-            "enabled": 1,
-            "playOnce": 0,
-            "sequenceName": "02-TSO-WizardsInWinter.fseq",
-            "mediaName": "02-TSO-WizardsInWinter.mp3",
-            "videoOut": "--Default--",
-            "duration": 185.93960051390346
-        },
-        {
-            "type": "both",
-            "enabled": 1,
-            "playOnce": 0,
-            "sequenceName": "04-Jingle-Bells.fseq",
-            "mediaName": "04-Jingle-Bells.m4a",
-            "videoOut": "--Default--",
-            "duration": 174.675
+            "sequenceName": "Xmas Chase.fseq",
+            "duration": 30
         }
     ],
     "leadOut": [],
     "playlistInfo": {
-        "total_duration": 565.963186589123,
-        "total_items": 3
+        "total_duration": 30,
+        "total_items": 1
     }
 }

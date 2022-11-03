@@ -1,0 +1,19 @@
+{
+    "colors": [
+        "#ff0000",
+        "#00ff00",
+        "#0000ff"
+    ],
+    "brightness": "255",
+    "speed": "0",
+    "intensity": "209",
+    "bufferMapping": "Horizontal",
+    "palette": "Default",
+    "multisync": true,
+    "models": [],
+    "systems": [
+        "10.0.2.100",
+        "10.0.2.101",
+        "10.0.0.43"
+    ]
+}

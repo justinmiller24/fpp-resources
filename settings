@@ -1,7 +1,7 @@
 storageDevice = "mmcblk0p2"
 LastBlock = "0"
 AudioOutput = "0"
-volume = "70"
+volume = "100"
 AudioCard0Type = "bcm2"
 AudioMixerDevice = "PCM"
 AudioCardType = "bcm2835 ALSA"

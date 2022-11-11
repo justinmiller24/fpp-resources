@@ -28,7 +28,7 @@
 					"startChannel": 3601,
 					"universeCount": 40,
 					"channelCount": 510,
-					"type": 1,
+					"type": 5,
 					"address": "10.0.2.100",
 					"priority": 2,
 					"monitor": 1,
